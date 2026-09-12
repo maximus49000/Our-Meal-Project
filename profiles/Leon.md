@@ -16,3 +16,5 @@
 - Autres remarques :
   - Pas de protéines animales le soir.
   - Recommandation : maximum 30g de protéines par jour pour un enfant de son âge.
+  - Charcuterie interdite, sauf jambon blanc.
+  - Uniquement du lait pasteurisé.
