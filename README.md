@@ -27,3 +27,4 @@ Une fois ces réponses obtenues :
 - Un **menu de la semaine** est proposé, respectant les préférences, particularités et **l'âge** de chaque profil (les repas pour un jeune enfant comme Léon sont adaptés en conséquence : textures, quantités, absence d'aliments non recommandés à son âge, etc.).
 - Une **liste de courses** correspondante est générée à partir des ingrédients du menu.
 - Le menu et sa liste de courses sont **archivés dans `menus/`** pour être retrouvés facilement par la suite.
+- Une fois les fichiers créés, ils sont **ouverts automatiquement** (menu et liste de courses) afin d'être immédiatement consultables, sans action supplémentaire à faire.
