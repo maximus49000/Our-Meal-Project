@@ -25,5 +25,6 @@ Quand une demande de menu est faite, les informations suivantes sont d'abord dem
 Une fois ces réponses obtenues :
 
 - Un **menu de la semaine** est proposé, respectant les préférences, particularités et **l'âge** de chaque profil (les repas pour un jeune enfant comme Léon sont adaptés en conséquence : textures, quantités, absence d'aliments non recommandés à son âge, etc.).
+- Pour chaque plat proposé, la **recette** correspondante est également fournie (ingrédients avec quantités et étapes de préparation), afin de pouvoir réaliser directement les plats du menu.
 - Une **liste de courses** correspondante est générée à partir des ingrédients du menu.
 - Le menu et sa liste de courses sont **archivés dans `menus/`** pour être retrouvés facilement par la suite.
