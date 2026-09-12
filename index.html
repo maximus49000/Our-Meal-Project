@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Meal Project - Générateur de menu</title>
+<style>
+  :root {
+    --bg: #faf7f2;
+    --card: #ffffff;
+    --accent: #d97757;
+    --text: #2b2420;
+    --muted: #8a7f74;
+    --border: #ece4da;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 2rem 1rem;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+  h1 { text-align: center; margin-bottom: 0.25rem; }
+  p.sub { text-align: center; color: var(--muted); margin-top: 0; }
+  .controls {
+    display: flex; justify-content: center; gap: 0.75rem;
+    margin: 1.5rem 0; flex-wrap: wrap;
+  }
+  button {
+    background: var(--accent); color: white; border: none;
+    padding: 0.6rem 1.2rem; border-radius: 8px; font-size: 1rem;
+    cursor: pointer;
+  }
+  button.secondary {
+    background: white; color: var(--accent); border: 1px solid var(--accent);
+  }
+  table {
+    width: 100%; border-collapse: collapse; background: var(--card);
+    border-radius: 12px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  th, td {
+    padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--border);
+  }
+  th { background: #f4ede4; color: var(--text); }
+  tr:last-child td { border-bottom: none; }
+  td.day { font-weight: 600; white-space: nowrap; }
+  @media (max-width: 600px) {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead { display: none; }
+    tr { margin-bottom: 1rem; border: 1px solid var(--border); border-radius: 8px; }
+    td { border-bottom: none; padding: 0.4rem 1rem; }
+    td::before { content: attr(data-label) ": "; font-weight: 600; color: var(--muted); }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>🍽️ Générateur de menu de la semaine</h1>
+    <p class="sub">Un menu équilibré pour vos 7 jours, généré aléatoirement.</p>
+    <div class="controls">
+      <button id="generate">Générer un nouveau menu</button>
+      <button id="print" class="secondary">Imprimer</button>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Jour</th><th>Petit-déjeuner</th><th>Déjeuner</th><th>Dîner</th></tr>
+      </thead>
+      <tbody id="menu-body"></tbody>
+    </table>
+  </div>
+
+<script>
+  const days = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
+
+  const breakfasts = [
+    "Tartines beurre & confiture", "Bol de céréales et lait", "Œufs brouillés & pain grillé",
+    "Yaourt, granola et fruits", "Pancakes maison", "Porridge à l'avoine", "Croissant et jus d'orange"
+  ];
+
+  const lunches = [
+    "Salade de quinoa au poulet", "Pâtes bolognaise", "Riz sauté aux légumes",
+    "Wrap au thon et crudités", "Soupe de légumes et pain", "Poke bowl saumon-avocat",
+    "Couscous végétarien"
+  ];
+
+  const dinners = [
+    "Poulet rôti et légumes vapeur", "Saumon grillé, riz basmati", "Gratin de courgettes",
+    "Chili con carne", "Omelette et salade verte", "Curry de légumes et naan",
+    "Lasagnes maison"
+  ];
+
+  function pickRandom(arr, used) {
+    let choice;
+    let attempts = 0;
+    do {
+      choice = arr[Math.floor(Math.random() * arr.length)];
+      attempts++;
+    } while (used.has(choice) && attempts < 20);
+    used.add(choice);
+    return choice;
+  }
+
+  function generateMenu() {
+    const tbody = document.getElementById("menu-body");
+    tbody.innerHTML = "";
+    const usedB = new Set(), usedL = new Set(), usedD = new Set();
+
+    days.forEach(day => {
+      const b = pickRandom(breakfasts, usedB);
+      const l = pickRandom(lunches, usedL);
+      const d = pickRandom(dinners, usedD);
+
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td class="day" data-label="Jour">${day}</td>
+        <td data-label="Petit-déjeuner">${b}</td>
+        <td data-label="Déjeuner">${l}</td>
+        <td data-label="Dîner">${d}</td>
+      `;
+      tbody.appendChild(row);
+    });
+  }
+
+  document.getElementById("generate").addEventListener("click", generateMenu);
+  document.getElementById("print").addEventListener("click", () => window.print());
+
+  generateMenu();
+</script>
+</body>
+</html>
