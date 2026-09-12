@@ -7,7 +7,7 @@
 ## Préférences alimentaires
 
 - Aime :
-- N'aime pas :
+- N'aime pas : minestrone, quenelles, anchois, câpres
 
 ## Particularités
 
