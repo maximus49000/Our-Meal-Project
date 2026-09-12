@@ -9,8 +9,16 @@ Ce dépôt sert à organiser les menus de la famille en tenant compte des goûts
   - **Préférences** : aliments aimés / aliments à éviter
   - **Particularités** : régime alimentaire (végétarien, végan, allergies, intolérances, etc.)
 - `menus/` — historique des menus générés et de leurs listes de courses associées (voir `menus/README.md` pour la convention de nommage)
+- `recettes-favorites.md` — liste des recettes que la famille a aimées, pour pouvoir les refaire facilement plus tard
 
 Ces fichiers doivent être tenus à jour au fil des envies et contraintes de chacun ; ils servent de base à la génération des menus.
+
+## Recettes favorites
+
+Quand un membre de la famille indique qu'une recette lui a plu, elle est
+ajoutée dans `recettes-favorites.md` (nom de la recette, qui l'a aimée, date,
+et lien vers son archive dans `menus/` si elle existe), afin de pouvoir la
+retrouver et la reproposer facilement plus tard.
 
 ## Fonctionnement de la génération d'un menu
 
