@@ -24,7 +24,19 @@ Quand une demande de menu est faite, les informations suivantes sont d'abord dem
 
 Une fois ces réponses obtenues :
 
-- Un **menu de la semaine** est proposé, respectant les préférences, particularités et **l'âge** de chaque profil (les repas pour un jeune enfant comme Léon sont adaptés en conséquence : textures, quantités, absence d'aliments non recommandés à son âge, etc.).
-- Pour chaque plat proposé, la **recette** correspondante est également fournie (ingrédients avec quantités et étapes de préparation), afin de pouvoir réaliser directement les plats du menu.
+- Un **menu de la semaine** est proposé (dans la conversation, pas encore archivé), respectant les préférences, particularités et **l'âge** de chaque profil (les repas pour un jeune enfant comme Léon sont adaptés en conséquence : textures, quantités, absence d'aliments non recommandés à son âge, etc.).
+
+### Validation du menu avant génération finale
+
+- Ce menu proposé est **soumis à validation** : il n'est ni archivé, ni accompagné de recettes ou de liste de courses à ce stade.
+- L'utilisateur peut alors :
+  - **Valider** le menu tel quel, ou
+  - **Demander des modifications** (ex. changer un plat précis, un jour précis, remplacer une entrée, etc.).
+- Si des modifications sont demandées, un **nouveau menu** est proposé en reprenant à l'identique tout ce qui n'a pas été concerné par la demande, et en ne modifiant que les éléments explicitement demandés par l'utilisateur.
+- Ce cycle (proposition → demande de modification → nouvelle proposition) se répète autant de fois que nécessaire, jusqu'à validation explicite du menu par l'utilisateur.
+
+Une fois le menu **validé** :
+
+- Pour chaque plat du menu validé, la **recette** correspondante est fournie (ingrédients avec quantités et étapes de préparation), afin de pouvoir réaliser directement les plats du menu.
 - Une **liste de courses** correspondante est générée à partir des ingrédients du menu.
 - Le menu et sa liste de courses sont **archivés dans `menus/`** pour être retrouvés facilement par la suite.
