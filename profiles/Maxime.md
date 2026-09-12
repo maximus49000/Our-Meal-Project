@@ -1,5 +1,9 @@
 # Profil — Maxime
 
+## Date de naissance
+
+- 17/11/1992
+
 ## Préférences alimentaires
 
 - Aime :
