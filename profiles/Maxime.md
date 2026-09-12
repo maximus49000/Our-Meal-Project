@@ -6,7 +6,7 @@
 
 ## Préférences alimentaires
 
-- Aime :
+- Aime : les frites
 - N'aime pas :
 
 ## Particularités
