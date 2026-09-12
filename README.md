@@ -10,6 +10,7 @@ Ce dépôt sert à organiser les menus de la famille en tenant compte des goûts
   - **Particularités** : régime alimentaire (végétarien, végan, allergies, intolérances, etc.)
 - `menus/` — historique des menus générés et de leurs listes de courses associées (voir `menus/README.md` pour la convention de nommage)
 - `recettes-favorites.md` — liste des recettes que la famille a aimées, pour pouvoir les refaire facilement plus tard
+- `notes-recettes.md` — notes (0 à 5) données par Margaux, Léon et Maxime aux recettes des menus archivés
 
 Ces fichiers doivent être tenus à jour au fil des envies et contraintes de chacun ; ils servent de base à la génération des menus.
 
@@ -48,3 +49,21 @@ Une fois le menu **validé** :
 - Pour chaque plat du menu validé, la **recette** correspondante est fournie (ingrédients avec quantités et étapes de préparation), afin de pouvoir réaliser directement les plats du menu.
 - Une **liste de courses** correspondante est générée à partir des ingrédients du menu.
 - Le menu et sa liste de courses sont **archivés dans `menus/`** pour être retrouvés facilement par la suite.
+
+## Archivage d'un menu déjà réalisé
+
+Un menu déjà réalisé (déjà cuisiné et mangé) peut être archivé pour garder une
+trace de ce qui a été apprécié ou non :
+
+1. L'utilisateur indique quel menu archiver (ex. `menus/2026-09-21-menu.md`).
+2. La **liste des recettes** de ce menu est affichée (à partir du fichier
+   `menus/AAAA-MM-JJ-recettes.md` correspondant).
+3. Pour chaque recette, l'utilisateur peut donner une **note de 0 à 5**,
+   attribuée à une personne précise (**Margaux**, **Léon** ou **Maxime**) — une
+   même recette peut recevoir plusieurs notes, une par personne.
+4. Chaque note donnée est enregistrée dans `notes-recettes.md`, avec la
+   recette concernée, la personne, la note, la date, et un lien vers
+   `menus/AAAA-MM-JJ-recettes.md`, afin d'être conservée durablement et
+   consultée lors de la génération de futurs menus.
+5. Si une recette reçoit une bonne note, elle peut également être ajoutée à
+   `recettes-favorites.md` comme recette appréciée.
